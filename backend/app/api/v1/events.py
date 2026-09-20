@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from typing import List
+from typing import List, Optional
 
 from app.core.database import get_db
 from app.api.deps import get_current_active_user
@@ -8,6 +8,7 @@ from app.models.user import User
 from app.models.event import DetectionEvent
 from app.models.camera import Camera
 from app.schemas.event import DetectionEventCreate, DetectionEventOut
+from app.services.matching_service import check_and_create_alert
 
 router = APIRouter()
 
@@ -26,14 +27,18 @@ def create_detection_event(
     db.add(event)
     db.commit()
     db.refresh(event)
+
+    # Automatically check watchlist and create alert if match found
+    check_and_create_alert(db, event)
+
     return event
 
 @router.get("/", response_model=List[DetectionEventOut])
 def list_events(
     skip: int = 0,
     limit: int = 50,
-    camera_id: str = None,
-    vehicle_number: str = None,
+    camera_id: Optional[str] = None,
+    vehicle_number: Optional[str] = None,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_active_user)
 ):
