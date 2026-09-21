@@ -4,6 +4,8 @@ from app.models.event import DetectionEvent
 from app.models.watchlist import Watchlist
 from app.models.alert import Alert
 from app.models.camera import Camera
+from app.websocket.manager import manager
+import asyncio
 
 def check_and_create_alert(db: Session, event: DetectionEvent):
     """
@@ -53,4 +55,23 @@ def check_and_create_alert(db: Session, event: DetectionEvent):
     db.add(alert)
     db.commit()
     db.refresh(alert)
+    return alert
+
+    # Broadcast alert in real-time
+    try:
+        asyncio.create_task(manager.broadcast({
+            "type": "new_alert",
+            "data": {
+                "id": alert.id,
+                "matched_identifier": alert.matched_identifier,
+                "severity": alert.severity,
+                "camera_id": alert.camera_id,
+                "confidence": alert.confidence,
+                "status": alert.status,
+                "created_at": str(alert.created_at)
+            }
+        }))
+    except Exception:
+        pass  # don't break if websocket fails
+
     return alert
