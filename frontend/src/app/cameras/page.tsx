@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Cookies from "js-cookie";
 import api from "@/lib/api";
 import dynamic from "next/dynamic";
@@ -79,12 +80,15 @@ export default function CamerasPage() {
           <div className="flex items-center gap-6">
             <h1 className="text-xl font-bold text-blue-800">okDriver Sentinel</h1>
             <nav className="flex gap-4 text-sm">
-              <a href="/dashboard" className="text-gray-600 hover:text-blue-600">
+              <Link href="/dashboard" className="text-gray-600 hover:text-blue-600">
                 Dashboard
-              </a>
-              <a href="/cameras" className="text-blue-600 font-medium">
+              </Link>
+              <Link href="/cameras" className="text-blue-600 font-medium">
                 Cameras
-              </a>
+              </Link>
+              <Link href="/alerts" className="text-gray-600 hover:text-blue-600">
+                Alerts
+              </Link>
             </nav>
           </div>
           <button

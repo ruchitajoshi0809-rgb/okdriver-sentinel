@@ -130,6 +130,9 @@ export default function DashboardPage() {
               <Link href="/cameras" className="text-gray-600 hover:text-blue-600">
                 Cameras
               </Link>
+              <Link href="/alerts" className="text-gray-600 hover:text-blue-600">
+                Alerts
+              </Link>
             </nav>
           </div>
           <button
