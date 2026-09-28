@@ -25,3 +25,15 @@ body {
     text-wrap: balance;
   }
 }
+
+select,
+input,
+textarea {
+  color: #1e293b; /* slate-800 */
+  background-color: #ffffff;
+}
+
+select option {
+  color: #1e293b;
+  background-color: #ffffff;
+}
