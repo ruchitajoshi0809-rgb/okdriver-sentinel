@@ -9,6 +9,7 @@ import api from "@/lib/api";
 const NAV_LINKS = [
   { href: "/dashboard", label: "Dashboard" },
   { href: "/cameras", label: "Cameras" },
+  { href: "/tracking", label: "Tracking" },
   { href: "/alerts", label: "Alerts" },
 ] as const;
 
