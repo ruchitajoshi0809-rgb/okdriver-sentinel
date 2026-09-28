@@ -125,14 +125,14 @@ export default function DashboardPage() {
           <div
             className={`rounded-xl border shadow-sm p-6 ${
               activeAlerts > 0
-                ? "bg-red-50 border-red-200"
+                ? "bg-red-950/40 border-red-800"
                 : "bg-white border-slate-200"
             }`}
           >
             <p className="text-sm font-medium text-slate-500">Active Alerts</p>
             <p
               className={`text-3xl font-bold mt-2 ${
-                activeAlerts > 0 ? "text-red-600" : "text-slate-800"
+                activeAlerts > 0 ? "text-red-400" : "text-slate-100"
               }`}
             >
               {activeAlerts}

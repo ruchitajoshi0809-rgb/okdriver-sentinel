@@ -37,3 +37,69 @@ select option {
   color: #1e293b;
   background-color: #ffffff;
 }
+
+/* Dark operations theme */
+body {
+  background-color: #020617 !important; /* slate-950 */
+  color: #f1f5f9 !important; /* slate-100 */
+}
+
+/* Cards / panels */
+.bg-white,
+.bg-slate-50,
+.bg-gray-50 {
+  background-color: #0f172a !important; /* slate-900 */
+}
+
+.bg-slate-100,
+.bg-gray-100 {
+  background-color: #1e293b !important; /* slate-800 */
+}
+
+/* Borders */
+.border-slate-200,
+.border-gray-200,
+.border-slate-100 {
+  border-color: #1e293b !important;
+}
+
+/* Text */
+.text-slate-800,
+.text-gray-800,
+.text-slate-700,
+.text-gray-700 {
+  color: #f1f5f9 !important;
+}
+
+.text-slate-600,
+.text-gray-600,
+.text-slate-500,
+.text-gray-500 {
+  color: #94a3b8 !important; /* slate-400 */
+}
+
+/* Inputs */
+input,
+select,
+textarea {
+  background-color: #0f172a !important;
+  color: #f1f5f9 !important;
+  border-color: #334155 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Tables */
+thead,
+.bg-slate-50 {
+  background-color: #1e293b !important;
+}
+
+/* Header if white */
+header {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+}
